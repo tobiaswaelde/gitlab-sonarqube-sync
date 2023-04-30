@@ -21,6 +21,7 @@
   "dependencies": {
     "axios": "^1.4.0",
     "dotenv": "^16.0.3",
+    "enquirer": "^2.3.6",
     "envalid": "^7.3.1",
     "tw-logger": "^3.0.10"
   }

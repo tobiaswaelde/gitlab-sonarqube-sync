@@ -2,6 +2,9 @@
 node_modules
 yarn.lock
 
+# Build
+out/
+
 # Logs
 yarn-error.log
 
