@@ -1,3 +1,12 @@
 # GitLab-SonarQube Sync
 
+<!-- project badges -->
+[![Quality Gate Status](https://sq.srv.tobiaswaelde.com/api/project_badges/measure?project=tobiaswaelde_gitlab-sonarqube-sync_AYfP7bN84h2aBBrljoXq&metric=alert_status&token=sqb_72aceca57763cebbfd5875425b204bf4984368c9)](https://sq.srv.tobiaswaelde.com/dashboard?id=tobiaswaelde_gitlab-sonarqube-sync_AYfP7bN84h2aBBrljoXq)
+[![Security Rating](https://sq.srv.tobiaswaelde.com/api/project_badges/measure?project=tobiaswaelde_gitlab-sonarqube-sync_AYfP7bN84h2aBBrljoXq&metric=security_rating&token=sqb_72aceca57763cebbfd5875425b204bf4984368c9)](https://sq.srv.tobiaswaelde.com/dashboard?id=tobiaswaelde_gitlab-sonarqube-sync_AYfP7bN84h2aBBrljoXq)
+[![Vulnerabilities](https://sq.srv.tobiaswaelde.com/api/project_badges/measure?project=tobiaswaelde_gitlab-sonarqube-sync_AYfP7bN84h2aBBrljoXq&metric=vulnerabilities&token=sqb_72aceca57763cebbfd5875425b204bf4984368c9)](https://sq.srv.tobiaswaelde.com/dashboard?id=tobiaswaelde_gitlab-sonarqube-sync_AYfP7bN84h2aBBrljoXq)
+[![Bugs](https://sq.srv.tobiaswaelde.com/api/project_badges/measure?project=tobiaswaelde_gitlab-sonarqube-sync_AYfP7bN84h2aBBrljoXq&metric=bugs&token=sqb_72aceca57763cebbfd5875425b204bf4984368c9)](https://sq.srv.tobiaswaelde.com/dashboard?id=tobiaswaelde_gitlab-sonarqube-sync_AYfP7bN84h2aBBrljoXq)
+[![Lines of Code](https://sq.srv.tobiaswaelde.com/api/project_badges/measure?project=tobiaswaelde_gitlab-sonarqube-sync_AYfP7bN84h2aBBrljoXq&metric=ncloc&token=sqb_72aceca57763cebbfd5875425b204bf4984368c9)](https://sq.srv.tobiaswaelde.com/dashboard?id=tobiaswaelde_gitlab-sonarqube-sync_AYfP7bN84h2aBBrljoXq)
+[![Duplicated Lines (%)](https://sq.srv.tobiaswaelde.com/api/project_badges/measure?project=tobiaswaelde_gitlab-sonarqube-sync_AYfP7bN84h2aBBrljoXq&metric=duplicated_lines_density&token=sqb_72aceca57763cebbfd5875425b204bf4984368c9)](https://sq.srv.tobiaswaelde.com/dashboard?id=tobiaswaelde_gitlab-sonarqube-sync_AYfP7bN84h2aBBrljoXq)
+[![Maintainability Rating](https://sq.srv.tobiaswaelde.com/api/project_badges/measure?project=tobiaswaelde_gitlab-sonarqube-sync_AYfP7bN84h2aBBrljoXq&metric=sqale_rating&token=sqb_72aceca57763cebbfd5875425b204bf4984368c9)](https://sq.srv.tobiaswaelde.com/dashboard?id=tobiaswaelde_gitlab-sonarqube-sync_AYfP7bN84h2aBBrljoXq)
+
 Simple tool for adding GitLab projects to SonarQube.
