@@ -1,0 +1,13 @@
+# Dependencies
+node_modules
+yarn.lock
+
+# Logs
+yarn-error.log
+
+# Environment
+.env
+!.env.example
+
+# Misc
+.DS_Store

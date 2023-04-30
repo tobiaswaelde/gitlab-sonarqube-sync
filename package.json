@@ -1,0 +1,27 @@
+{
+  "name": "gitlab-sonarqube-sync",
+  "version": "1.0.0",
+  "description": "Simple tool for adding Gitlab projects to SonarQube",
+  "main": "index.js",
+  "repository": "git@gitlab.com:tobiaswaelde-tools/gitlab-sonarqube-sync.git",
+  "author": "Tobias Wälde <tobias.waelde@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "dev": "nodemon --config \"./nodemon.json\"",
+    "build": "rm -rf ./out/ && cd src && tsc",
+    "start": "node ./out/index.js"
+  },
+  "devDependencies": {
+    "@types/node": "^18.16.3",
+    "nodemon": "^2.0.22",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "dotenv": "^16.0.3",
+    "envalid": "^7.3.1",
+    "tw-logger": "^3.0.10"
+  }
+}
