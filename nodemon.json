@@ -1,4 +1,5 @@
 {
+  "stdin": false,
   "watch": [
     "src"
   ],

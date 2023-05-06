@@ -1,32 +1,17 @@
-import enquirer from 'enquirer';
 import { GitLab } from './services/gitlab';
-
-async function prompt<T>(props: {
-	name: string;
-	message: string;
-	initial?: T;
-	validate?: (value: string) => boolean;
-	required?: boolean;
-}) {
-	const res = await enquirer.prompt<{ [key: string]: T }>({ type: 'input', ...props });
-	return res[props.name];
-}
+import { Prompts } from './services/prompts';
 
 async function main() {
 	// get gitlab project ID
-	const gitlabProjectId = await prompt({
-		name: 'gitlabProjectId',
-		message: 'GitLab Project ID:',
-		initial: 40586698,
-		validate: (value) => value !== '' && !Number.isNaN(Number(value)),
-		required: true,
-	});
+	const gitlabProjectId = await Prompts.getGitlabProjectId();
 
 	// get gitlab project
 	const gitlabProject = await GitLab.getProjectInfo(gitlabProjectId);
-	console.log(gitlabProject);
+	// console.log(gitlabProject);
 
 	// create project on sonarqube
+	const createNew = await Prompts.askToCreateSonarqubeProject();
+	console.log(createNew);
 
 	// add sonarqube project to gitlab project
 
