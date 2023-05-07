@@ -14,7 +14,7 @@ export const ENV = cleanEnv(process.env, {
 	}),
 	SONARQUBE_API_URL: str({
 		desc: 'SonarQube API endpoint',
-		default: 'https://sonarqube.com/api',
+		default: 'https://sonarqube.com',
 	}),
 	SONARQUBE_ACCESS_TOKEN: str({
 		desc: `SonarQube access token with 'Administer System' permission`,

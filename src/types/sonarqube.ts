@@ -1,4 +1,5 @@
 export type Visibility = 'public' | 'private';
+export type Qualifier = 'TRK' | 'VW' | 'APP';
 
 export type CreateProjectParams = {
 	/** Key of the main branch of the project. If not provided, the default main branch key will be used. */
@@ -23,4 +24,12 @@ export type CreateProjectResponse = {
 		name: string;
 		qualifier: string;
 	};
+};
+
+export type SonarQubeProject = {
+	key: string;
+	name: string;
+	qualifier: Qualifier;
+	lastAnalysisDate: string;
+	revision: string;
 };

@@ -1,3 +1,5 @@
+import { EventEmitter } from 'events';
+
 interface BasePromptOptions {
 	name: string | (() => string);
 	type: string | (() => string);
@@ -89,3 +91,58 @@ export type PromptOptions =
 	| NumberPromptOptions
 	| SnippetPromptOptions
 	| SortPromptOptions;
+
+declare class BasePrompt extends EventEmitter {
+	constructor(options?: PromptOptions);
+
+	render(): void;
+
+	run(): Promise<any>;
+}
+
+declare class Enquirer<T = object> extends EventEmitter {
+	constructor(options?: object, answers?: T);
+
+	/**
+	 * Register a custom prompt type.
+	 *
+	 * @param type
+	 * @param fn `Prompt` class, or a function that returns a `Prompt` class.
+	 */
+	register(type: string, fn: typeof BasePrompt | (() => typeof BasePrompt)): this;
+
+	/**
+	 * Register a custom prompt type.
+	 */
+	register(type: { [key: string]: typeof BasePrompt | (() => typeof BasePrompt) }): this;
+
+	/**
+	 * Prompt function that takes a "question" object or array of question objects,
+	 * and returns an object with responses from the user.
+	 *
+	 * @param questions Options objects for one or more prompts to run.
+	 */
+	prompt(
+		questions:
+			| PromptOptions
+			| ((this: Enquirer) => PromptOptions)
+			| (PromptOptions | ((this: Enquirer) => PromptOptions))[]
+	): Promise<T>;
+
+	/**
+	 * Use an enquirer plugin.
+	 *
+	 * @param plugin Plugin function that takes an instance of Enquirer.
+	 */
+	use(plugin: (this: this, enquirer: this) => void): this;
+}
+declare namespace Enquirer {
+	function prompt<T = object>(
+		questions:
+			| PromptOptions
+			| ((this: Enquirer) => PromptOptions)
+			| (PromptOptions | ((this: Enquirer) => PromptOptions))[]
+	): Promise<T>;
+
+	class Prompt extends BasePrompt {}
+}
