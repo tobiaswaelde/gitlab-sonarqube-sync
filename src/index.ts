@@ -9,20 +9,18 @@ async function main() {
 	const sqProjectKey: string | undefined = sqConfig['sonar.projectKey'];
 	let sqProject: SonarQubeProject | undefined = undefined;
 
-	// if (sqConfig['sonar.projectKey']) {
-	// 	const sqProject = await SonarQube.getProject(sqConfig['sonar.projectKey']);
-	// }
-
 	// get gitlab project ID
 	const gitlabProjectId = await Prompts.getGitlabProjectId();
 
 	// get gitlab project
 	const gitlabProject = await GitLab.getProjectInfo(gitlabProjectId);
-	console.log(gitlabProject.name);
 
 	// check if SonarQube project exist
 	if (sqProjectKey) {
 		sqProject = await SonarQube.getProject(sqConfig['sonar.projectKey']);
+		if (sqProject) {
+			console.log(`SonarQube project found: ${sqProject.name}`);
+		}
 	}
 	if (!sqProject) {
 		const createNew = await Prompts.askToCreateSonarqubeProject();
@@ -32,7 +30,7 @@ async function main() {
 			// select sonarqube project
 			const availableProjects = await SonarQube.getProjects();
 			sqProject = await Prompts.selectProject(availableProjects);
-			console.log(sqConfig);
+			console.log(sqProject);
 		}
 	}
 
