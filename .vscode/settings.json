@@ -1,0 +1,6 @@
+{
+	"sonarlint.connectedMode.project": {
+		"connectionId": "SonarQube",
+		"projectKey": "tobiaswaelde_gitlab-sonarqube-sync_AYfP7bN84h2aBBrljoXq"
+	}
+}
