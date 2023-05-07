@@ -24,7 +24,7 @@ export class Prompts {
 		});
 	}
 
-	public static async askToCreateSonarqubeProject() {
+	public static async askToCreateSonarqubeProject(): Promise<boolean> {
 		const res = await this.prompt({
 			type: 'select',
 			name: 'createSonarqubeProject',
