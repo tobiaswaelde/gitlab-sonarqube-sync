@@ -2,16 +2,6 @@ import enquirer from 'enquirer';
 import { PromptOptions } from '../types/enquirer';
 
 export class Prompts {
-	// private static async prompt<T>(props: {
-	// 	name: string;
-	// 	message: string;
-	// 	initial?: T;
-	// 	validate?: (value: string) => boolean;
-	// 	required?: boolean;
-	// }): Promise<T> {
-	// 	const res = await enquirer.prompt<{ [key: string]: T }>({ type: 'input', ...props });
-	// 	return res[props.name];
-	// }
 	private static async prompt<T>(props: PromptOptions) {
 		const res = await enquirer.prompt<{ [key: string]: T }>(props);
 
@@ -33,7 +23,7 @@ export class Prompts {
 		});
 	}
 
-	public static async askToCreateSonarqubeProject() {
+	public static async askToCreateSonarqubeProject(): Promise<boolean> {
 		const res = await this.prompt({
 			type: 'select',
 			name: 'createSonarqubeProject',
