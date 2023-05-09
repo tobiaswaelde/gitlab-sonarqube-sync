@@ -1,20 +1,9 @@
-import enquirer from 'enquirer';
-import { PromptOptions } from '../types/enquirer';
 import { SonarQubeProject } from '../types/sonarqube';
+import { prompt } from '../util/prompt';
 
 export class Prompts {
-	private static async prompt<T>(props: PromptOptions) {
-		const res = await enquirer.prompt<{ [key: string]: T }>(props);
-
-		if (typeof props.name === 'string') {
-			return res[props.name];
-		} else {
-			return res[props.name()];
-		}
-	}
-
 	public static async getGitlabProjectId(): Promise<number> {
-		return await this.prompt<number>({
+		return await prompt<number>({
 			type: 'input',
 			name: 'gitlabProjectId',
 			message: 'GitLab Project ID:',
@@ -25,7 +14,7 @@ export class Prompts {
 	}
 
 	public static async askToCreateSonarqubeProject(): Promise<boolean> {
-		const res = await this.prompt({
+		const res = await prompt({
 			type: 'select',
 			name: 'createSonarqubeProject',
 			message: 'Create or select sonarqube project',
@@ -39,7 +28,7 @@ export class Prompts {
 	public static async selectProject(
 		projects: SonarQubeProject[]
 	): Promise<SonarQubeProject | undefined> {
-		const res = await this.prompt({
+		const res = await prompt({
 			type: 'select',
 			name: 'selectSonarqubeProject',
 			message: 'Select SonarQube Project',

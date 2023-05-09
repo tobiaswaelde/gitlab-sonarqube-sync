@@ -1,14 +1,13 @@
-import axios from 'axios';
-import { ENV } from '../config/env';
+import axios, { AxiosInstance } from 'axios';
 import { CreateProjectParams, CreateProjectResponse, SonarQubeProject } from '../types/sonarqube';
 
 export class SonarQube {
-	private static api = axios.create({
-		baseURL: ENV.SONARQUBE_API_URL,
-		headers: {
-			Authorization: `Bearer ${ENV.SONARQUBE_ACCESS_TOKEN}`,
-		},
-	});
+	private static api: AxiosInstance = axios.create();
+
+	public static initialize(apiUrl: string, accessToken: string) {
+		this.api.defaults.baseURL = apiUrl;
+		this.api.defaults.headers.Authorization = `Bearer ${accessToken}`;
+	}
 
 	public static async createProject(data: CreateProjectParams): Promise<CreateProjectResponse> {
 		const res = await this.api.post(`/api/projects/create`, data);
